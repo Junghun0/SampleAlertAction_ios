@@ -79,4 +79,63 @@
         self.present(alert,animated: false)
     }
 ```
+---
+#### 여러가지 클로저 표현 형식
+
+
+ [원형]
+  ```swift
+    alert.addTextField(configurationHandler: {(textfield : UITextField) in
+            textfield.placeholder = "비밀번호"
+            textfield.isSecureTextEntry = true
+        })
+  ```
+  
+  
+  [변형1]클로저 인자값 대신 메소드에 실행 블록 추가
+  
+  
+```swift
+        alert.addTextField(){(textfield:UITextField) in
+            textfield.placeholder = "비밀번호"
+            textfield.isSecureTextEntry = true
+        }
+```
+        
+        
+ [변형2]클로저 인자값의 타입 생략
+
+```swift
+        alert.addTextField() {(tf) in
+            tf.placeholder = "비밀번호"
+            tf.isSecureTextEntry = true
+        }
+```
+
+
+ [변형3]클로저 인자값을 생략
+ ```swift
+         alert.addTextField() { $0.placeholder = "비밀번호"
+            $0.isSecureTextEntry = true
+        }
+ ```
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     
